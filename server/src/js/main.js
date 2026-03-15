@@ -1,18 +1,40 @@
-import { initScene, updateRotation } from "./threeScene.js";
-import { createSocket } from "./websocket.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160/build/three.module.js";
 
 const container = document.getElementById("scene");
 
-initScene(container);
+const scene = new THREE.Scene();
 
-createSocket((data) => {
+const camera = new THREE.PerspectiveCamera(
+  75,
+  container.clientWidth / container.clientHeight,
+  0.1,
+  1000
+);
 
-  const values = data.split(",");
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 
-  const ax = parseFloat(values[0]);
-  const ay = parseFloat(values[1]);
-  const az = parseFloat(values[2]);
+renderer.setSize(container.clientWidth, container.clientHeight);
 
-  updateRotation(ax / 1000, ay / 1000, az / 1000);
+container.appendChild(renderer.domElement);
 
-});
+// cube
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshNormalMaterial();
+const cube = new THREE.Mesh(geometry, material);
+
+scene.add(cube);
+
+camera.position.z = 5;
+
+// animation
+function animate() {
+
+  requestAnimationFrame(animate);
+
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+
+  renderer.render(scene, camera);
+}
+
+animate();

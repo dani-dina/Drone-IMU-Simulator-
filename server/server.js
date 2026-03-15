@@ -6,7 +6,7 @@ import { startSerial } from "./serial.js";
 const app = express();
 const server = http.createServer(app);
 
-app.use(express.static("public"));
+app.use(express.static("src"));
 
 const wss = setupWebsocket(server);
 
