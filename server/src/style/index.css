@@ -1,12 +1,48 @@
 body {
   margin: 0;
-  font-family: Arial;
-  background: #111;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
   color: white;
-  text-align: center;
 }
 
+/* layout */
+.app {
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* cards */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 3D scene */
 #scene {
   width: 100%;
-  height: 90vh;
+  height: 400px;
+}
+
+/* sensor data */
+.data p {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.data span {
+  color: #38bdf8;
+  font-weight: bold;
 }
