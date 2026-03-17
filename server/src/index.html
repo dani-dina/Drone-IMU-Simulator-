@@ -2,29 +2,45 @@
 <html>
 
 <head>
-  <title>MPU6050 3D Simulator</title>
-
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      text-align: center;
-      font-family: Arial;
-    }
-
-    #scene {
-      width: 100%;
-      height: 600px;
-    }
-  </style>
+  <title>MPU6050 Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<h1>MPU6050 3D Simulator</h1>
+<div class="app">
 
-<div id="scene"></div>
+  <header class="header">
+    <h1>MPU6050 Dashboard</h1>
+  </header>
+
+  <div class="grid">
+
+    <!-- 3D VIEW -->
+    <div class="card" id="viewer-card">
+      <h2>3D Simulator</h2>
+      <div id="scene"></div>
+    </div>
+
+    <!-- SENSOR DATA -->
+    <div class="card">
+      <h2>Sensor Data</h2>
+
+      <div class="data">
+        <p>Ax: <span id="ax">0</span></p>
+        <p>Ay: <span id="ay">0</span></p>
+        <p>Az: <span id="az">0</span></p>
+
+        <p>Gx: <span id="gx">0</span></p>
+        <p>Gy: <span id="gy">0</span></p>
+        <p>Gz: <span id="gz">0</span></p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <script type="module" src="js/main.js"></script>
 
